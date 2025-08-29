@@ -76,4 +76,4 @@ module.exports = serverless(app);
 // // add more routes here
 
 // module.exports = app;
-// module.exports.handler = serverless(app);
+ module.exports.handler = serverless(app);
