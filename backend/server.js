@@ -23,6 +23,9 @@ app.use(cors({
   credentials: true
 }));
 
+app.get("/", (req, res) => {
+  res.json({ message: "Backend API is running 🚀", status: "ok" });
+});
 
 // Routes
 app.use("/api/auth", require("./routes/auth"));
