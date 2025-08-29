@@ -3,6 +3,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./db");
+const serverless = require("serverless-http");
 
 dotenv.config();
 const app = express();
@@ -54,4 +55,4 @@ if (require.main === module) {
 // });
 
 
- module.exports = app;
+module.exports = serverless(app);
