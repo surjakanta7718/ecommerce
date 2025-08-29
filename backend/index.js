@@ -8,21 +8,21 @@ const serverless = require("serverless-http");
 dotenv.config();
 const app = express();
 
-const allowedOrigins = [
-  "https://ecommerce-hazel-tau-48.vercel.app",
-  "http://localhost:3000"
-];
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+// const allowedOrigins = [
+//   "https://ecommerce-hazel-tau-48.vercel.app",
+//   "http://localhost:3000"
+// ];
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Not allowed by CORS"));
+//     }
+//   },
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   credentials: true
+// }));
 
 app.get("/", (req, res) => {
   res.json({ message: "Backend API is running 🚀", status: "ok" });
