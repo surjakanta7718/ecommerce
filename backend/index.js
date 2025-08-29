@@ -40,10 +40,10 @@ app.use("/api/products/:productId/reviews", require("./routes/review"));
 connectDB();
 
 // Local dev only
-if (require.main === module) {
-  const PORT = process.env.PORT || 5000;
-  app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
-}
+// if (require.main === module) {
+//   const PORT = process.env.PORT || 5000;
+//   app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
+//}
 
 // 👉 Export app (important for Vercel)
 //module.exports = app;
