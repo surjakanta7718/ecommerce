@@ -2,14 +2,17 @@ const productsList = document.getElementById("products");
 const categoryFilter = document.getElementById("categoryFilter");
 const brandFilter = document.getElementById("brandFilter");
 const applyFilterBtn = document.getElementById("applyFilter");
+const API_BASE_URL = "https://ecommerce-backend.vercel.app"; 
 
 // unified loader + filter
 async function loadProducts(filters = {}) {
   try {
     // build query params if filters exist
     const params = new URLSearchParams(filters).toString();
-    const res = await fetch(`/api/products?${params}`);
+    const res = await fetch(`${API_BASE_URL}/api/products?${params}`);
     const data = await res.json();
+
+
 
     // clear old list
     productsList.innerHTML = "";
