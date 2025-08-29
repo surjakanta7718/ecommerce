@@ -2,7 +2,7 @@ const productsList = document.getElementById("products");
 const categoryFilter = document.getElementById("categoryFilter");
 const brandFilter = document.getElementById("brandFilter");
 const applyFilterBtn = document.getElementById("applyFilter");
-const API_BASE_URL = "https://skd-five.vercel.app"; 
+const API_BASE_URL = "https://ecommerce-gi9o.vercel.app"; 
 
 // unified loader + filter
 async function loadProducts(filters = {}) {
