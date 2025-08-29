@@ -1,3 +1,4 @@
+// server.js
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -6,14 +7,8 @@ const connectDB = require("./db");
 dotenv.config();
 const app = express();
 
-// ✅ Explicit CORS setup with preflight
-const corsOptions = { origin: "*" };
-
-
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions)); // <-- handle preflight requests
-
 // Middleware
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 
 // Routes
@@ -25,7 +20,6 @@ app.use("/api/orders", require("./routes/orders"));
 app.use("/api/contact", require("./routes/contact"));
 app.use("/api/products/:productId/reviews", require("./routes/review"));
 
-// Connect DB
 connectDB();
 
 // Local dev only
@@ -34,5 +28,5 @@ if (require.main === module) {
   app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
 }
 
-// Export for Vercel
+// 👉 Export app (important for Vercel)
 module.exports = app;
