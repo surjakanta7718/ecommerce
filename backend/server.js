@@ -8,7 +8,7 @@ dotenv.config();
 const app = express();
 
 const allowedOrigins = [
-  "https://skd-five.vercel.app",
+  "https://ecommerce-hazel-tau-48.vercel.app/",
   "http://localhost:3000"
 ];
 app.use(cors({
