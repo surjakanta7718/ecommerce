@@ -9,7 +9,12 @@ dotenv.config();
 const app = express();
 
 // Middleware
-app.use(cors());
+// ✅ CORS config (allow only your frontend)
+app.use(cors({
+  origin: "https://ecommerce-hazel-tau-48.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
