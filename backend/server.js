@@ -7,11 +7,8 @@ dotenv.config();
 const app = express();
 
 // ✅ Explicit CORS setup with preflight
-const corsOptions = {
-  origin: "https://ecommerce-hazel-tau-48.vercel.app",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
-};
+const corsOptions = { origin: "*" };
+;
 
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions)); // <-- handle preflight requests
