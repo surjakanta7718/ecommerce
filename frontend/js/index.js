@@ -12,7 +12,7 @@ async function loadProducts(filters = {}) {
     const res = await fetch(`${API_BASE_URL}/api/products?${params}`);
     const data = await res.json();
 
-
+  console.log("Data=",data);
 
     // clear old list
     productsList.innerHTML = "";
