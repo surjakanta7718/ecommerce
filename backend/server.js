@@ -1,20 +1,22 @@
-// server.js
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const path = require("path");
 const connectDB = require("./db");
 
 dotenv.config();
 const app = express();
 
-// Middleware
-// ✅ CORS config (allow only your frontend)
-app.use(cors({
+// ✅ Explicit CORS setup with preflight
+const corsOptions = {
   origin: "https://ecommerce-hazel-tau-48.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // <-- handle preflight requests
+
+// Middleware
 app.use(express.json());
 
 // Routes
@@ -25,8 +27,6 @@ app.use("/api/wishlist", require("./routes/wishlist"));
 app.use("/api/orders", require("./routes/orders"));
 app.use("/api/contact", require("./routes/contact"));
 app.use("/api/products/:productId/reviews", require("./routes/review"));
-
-// ❌ Remove frontend static serving (Vercel handles frontend separately)
 
 // Connect DB
 connectDB();
