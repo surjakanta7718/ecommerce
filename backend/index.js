@@ -75,5 +75,5 @@ app.get("/api", (req, res) => res.json({ message: "Backend running ✅" }));
 app.use("/api/products", require("./routes/products"));
 // add more routes here
 
- module.exports = app;
+ //module.exports = app;
  module.exports.handler = serverless(app);
